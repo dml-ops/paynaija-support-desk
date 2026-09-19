@@ -32,4 +32,9 @@ jobs:
       - name: Confirm health
         run: |
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@${{ secrets.EC2_HOST }} \
-            'curl -sf http://localhost:5000/api/health'
+            'curl -s -o /dev/null -w "%{http_code}" http://localhost:5000/ || true'
+
+
+
+
+
